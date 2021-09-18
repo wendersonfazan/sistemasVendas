@@ -3,7 +3,7 @@
 @section('title', 'Vendas')
 
 @section('content')
-    <h2>Vendas</h2>
+    <h2>Produtos</h2>
     <table class="table table-light">
         <thead>
         <tr>

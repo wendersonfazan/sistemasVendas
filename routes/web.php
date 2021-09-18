@@ -19,6 +19,9 @@ Route::post('cep', function () {
     return $serviceCep->buscarCep($_POST['cep']);
 })->name('cep');
 
+
+Route::get('getProduct', 'ProdutosController@getProduct')->name('getProduct');
+
 Route::group([
     'module' => 'VendasController',
     'prefix' => '/vendas',

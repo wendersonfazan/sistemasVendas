@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Repositories\{
     RepositoryProdutos,
 };
-
+use App\Models\Fornecedores;
 
 class ProdutosController extends Controller
 {
@@ -23,6 +24,27 @@ class ProdutosController extends Controller
 
         return view('produtos.index', [
             'lists' => $lists,
+        ]);
+    }
+
+
+    public function getProduct(Request $request)
+    {
+        $dados = $request->input();
+
+        $produto = $this->repositoryProdutos->getProduct($dados['produto']);
+        $listFornecedores = $produto->fornecedores;
+
+        $fornecedores = [];
+        foreach ($listFornecedores as $data) {
+            $fornecedor = Fornecedores::find($data['fornecedor_id']);
+            $fornecedores [] = $fornecedor->nome;
+        }
+
+        echo json_encode([
+            'preco' => $produto->preco,
+            'referencia' => $produto->reference,
+            'fornecedores' => implode(', ', $fornecedores),
         ]);
     }
 }

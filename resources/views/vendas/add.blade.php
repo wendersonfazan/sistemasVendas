@@ -8,14 +8,22 @@
     <form method="POST" class="row g-3">
         @csrf
         <meta name="csrf-token" content="{{ csrf_token() }}" />
-        <div class="col-md-12">
+        <div class="col-md-4">
             <label class="form-label">Produto</label>
-            <select class="form-select mb-3" name="produto" required>
+            <select class="form-select mb-3" name="produto" id="produto" required>
                 <option selected>Selecione</option>
                 @foreach($produtos as $produto)
                     <option value="{{$produto->id}}">{{$produto->nome}}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Valor</label>
+            <input type="text" class="form-control" name="valor" disabled>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Fornecedores</label>
+            <input type="text" class="form-control" name="fornecedores" disabled>
         </div>
         <div class="col-md-4">
             <label class="form-label">CEP</label>

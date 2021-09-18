@@ -12,4 +12,10 @@ class RepositoryProdutos
         return Produtos::all();
     }
 
+
+    public function getProduct(int $id)
+    {
+        return Produtos::find($id);
+    }
+
 }

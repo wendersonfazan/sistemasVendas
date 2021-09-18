@@ -22,6 +22,7 @@
                 <ul class="nav me-auto">
                     <li class="nav-item"><a href="{{route('home')}}" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
                     <li class="nav-item"><a href="{{route('vendas.index')}}" class="nav-link link-dark px-2" aria-current="page">Vendas</a></li>
+                    <li class="nav-item"><a href="{{route('produtos.index')}}" class="nav-link link-dark px-2" aria-current="page">Produtos</a></li>
                 </ul>
             </div>
         </nav>

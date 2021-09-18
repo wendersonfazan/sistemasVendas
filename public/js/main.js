@@ -28,4 +28,32 @@ $(document).ready(function () {
     });
 
 
+    $("#produto").on('change', function (){
+        $.ajax({
+            method: 'GET',
+            url: '/getProduct',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                'produto': $(this).val(),
+            },
+            success: function (callback) {
+                var jsonResponse = JSON.parse(callback)
+
+
+                var locale = 'brl';
+                var options = {style: 'currency', currency: 'brl', minimumFractionDigits: 2, maximumFractionDigits: 2};
+                var formatter = new Intl.NumberFormat(locale, options);
+                var valorFormatado = formatter.format(jsonResponse.preco);
+
+                $("input[name=valor]").val(valorFormatado);
+                $("input[name=fornecedores]").val(jsonResponse.fornecedores);
+
+
+            }
+        });
+    });
+
+
 });
