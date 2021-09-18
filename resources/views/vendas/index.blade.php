@@ -15,6 +15,7 @@
             <th scope="col">Produto</th>
             <th scope="col">Preço</th>
             <th scope="col">Fornecedor</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -39,7 +40,13 @@
                     </td>
                     <td>
                         {{ implode(', ', $fornecedores) }}
-
+                    </td>
+                    <td>
+                        <a href="{{ route('vendas.remove', ['id'=>$list->id]) }}">
+                            <button type="button" class="btn position-relative" style="background-color: #CCCCCC;">
+                                Remover venda
+                            </button>
+                        </a>
                     </td>
                 </tr>
             @endforeach

@@ -49,7 +49,18 @@ class VendasController extends Controller
         $this->repositoryVendas->confirmVenda($dados);
 
         return redirect()->route('vendas.index', ['lists' => $vendas]);
+    }
 
+    public function removeVenda(Request $request)
+    {
+        $id = $request->input('id');
+
+        $vendas = $this->repositoryVendas->list();
+
+        $this->repositoryVendas->removeVenda($id);
+
+        return redirect()->route('vendas.index', ['lists' => $vendas]);
 
     }
+
 }

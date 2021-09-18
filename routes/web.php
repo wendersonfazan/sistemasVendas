@@ -30,6 +30,9 @@ Route::group([
 
     Route::get('add', 'VendasController@add')->name('vendas.add');
     Route::post('add', 'VendasController@ConfirmVenda');
+
+    Route::get('remove', 'VendasController@removeVenda')->name('vendas.remove');
+
 });
 
 Route::group([

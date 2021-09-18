@@ -34,4 +34,11 @@ class RepositoryVendas
         $vendas->created_at = Carbon::now();
         $vendas->save();
     }
+
+
+    public function removeVenda(int $id)
+    {
+        $venda = Vendas::find($id);
+        $venda->delete();
+    }
 }
