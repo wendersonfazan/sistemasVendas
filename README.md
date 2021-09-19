@@ -12,4 +12,4 @@ Esse é um sistema simples para efetuar 'compras' de alguns produtos.
 - 'php artisan migrate' para criar toda estrutura do banco de dados.
 - 'php artisan db:seed' para popular as tabelas.
 
-Apôs isso é so usar o programinha...
+O Modelo ER encontra-se dentro do Diretório 'modelo ER.pnh'

@@ -3,54 +3,28 @@
 @section('title', 'Vendas')
 
 @section('content')
-    <h2>Produtos</h2>
-    <table class="table table-light">
-        <thead>
-        <tr>
-            <th scope="col">Produto</th>
-            <th scope="col">Preço</th>
-            <th scope="col">Referencia</th>
-            <th scope="col">Fornecedor</th>
-        </tr>
-        </thead>
-        <tbody>
-        @if($lists->count() > 0 )
-            @foreach($lists as $list)
-                <?php
-                $listFornecedores = $list->fornecedores;
+    <h3>Buscar Produtos</h3>
+    <div class="row">
+        <form method="POST" class="row g-3" name="buscarProdutos" >
+            <meta name="csrf-token" content="{{ csrf_token() }}" />
+            <div class="col-md-6">
+                <label class="form-label">Produto</label>
+                <input type="text" class="form-control" name="produto">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Referencia</label>
+                <input type="text" class="form-control" name="referencia">
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="row-fluid" id="detalhesProdutos" style="display:none; margin-top:20px">
 
-                $fornecedores = [];
-                foreach ($listFornecedores as $data) {
-                    $fornecedor = \App\Models\Fornecedores::find($data['fornecedor_id']);
-                    $fornecedores [] = $fornecedor->nome;
-                }
-                ?>
-                <tr>
-                    <td>
-                        {{$list->nome}}
-                    </td>
-                    <td>
-                        R$ {{number_format($list->preco, 2, ",", ".")}}
+        </div>
+    </div>
 
-                    </td>
-                    <td>
-                        {{$list->referencia}}
-                    </td>
-                    <td>
-                        {{ implode(', ', $fornecedores) }}
-
-                    </td>
-                </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="3">
-                    Não existe dados cadastrados
-
-                </td>
-            </tr>
-        @endif
-        </tbody>
-    </table>
-
+    <script src="{{asset('js/buscarProdutos.js')}}"></script>
 @endsection

@@ -36,7 +36,6 @@
                     </td>
                     <td>
                         R$ {{number_format($list->valor_venda, 2, ",", ".")}}
-
                     </td>
                     <td>
                         {{ implode(', ', $fornecedores) }}

@@ -18,4 +18,21 @@ class RepositoryProdutos
         return Produtos::find($id);
     }
 
+    public function getProductByFilter(array $dados)
+    {
+
+        $query = Produtos::select('produtos.id', 'produtos.nome', 'produtos.preco', 'produtos.referencia');
+
+        if ($dados['produto']) {
+            $query->where('nome', 'like', '%' . $dados['produto'] . '%');
+        }
+
+        if ($dados['referencia']) {
+            $query->where('referencia', '=', $dados['referencia']);
+        }
+        
+
+        return $query->get();
+    }
+
 }

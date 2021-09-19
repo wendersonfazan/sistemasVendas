@@ -47,4 +47,15 @@ class ProdutosController extends Controller
             'fornecedores' => implode(', ', $fornecedores),
         ]);
     }
+
+    public function getProductByFilter(Request $request)
+    {
+        $dados = $request->input();
+        $produtos = $this->repositoryProdutos->getProductByFilter($dados);
+
+        return view('produtos.table', [
+            'lists' => $produtos,
+        ]);
+    }
+
 }

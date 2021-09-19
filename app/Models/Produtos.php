@@ -18,4 +18,10 @@ class Produtos extends Model
     {
         return $this->hasMany(FornecedoresXProdutos::class, 'produto_id', 'id');
     }
+
+    public function scopeJoinFornecedoresXProdutos($query)
+    {
+        return $query->join('fornecedores_x_produtos', 'fornecedores_x_produtos.produto_id', '=', 'produtos.id');
+
+    }
 }

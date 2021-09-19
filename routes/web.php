@@ -21,6 +21,7 @@ Route::post('cep', function () {
 
 
 Route::get('getProduct', 'ProdutosController@getProduct')->name('getProduct');
+Route::get('getProductByFilter', 'ProdutosController@getProductByFilter')->name('getProductByFilter');
 
 Route::group([
     'module' => 'VendasController',

@@ -41,7 +41,6 @@ $(document).ready(function () {
             success: function (callback) {
                 var jsonResponse = JSON.parse(callback)
 
-
                 var locale = 'brl';
                 var options = {style: 'currency', currency: 'brl', minimumFractionDigits: 2, maximumFractionDigits: 2};
                 var formatter = new Intl.NumberFormat(locale, options);
@@ -49,8 +48,6 @@ $(document).ready(function () {
 
                 $("input[name=valor]").val(valorFormatado);
                 $("input[name=fornecedores]").val(jsonResponse.fornecedores);
-
-
             }
         });
     });
