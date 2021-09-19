@@ -30,7 +30,7 @@ class RepositoryProdutos
         if ($dados['referencia']) {
             $query->where('referencia', '=', $dados['referencia']);
         }
-        
+
 
         return $query->get();
     }
